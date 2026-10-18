@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
     //
     // Make sure to TUNE this value in the INSPECTOR after you create it!
 
-    [SerializeField] private float time_left;
+    [SerializeField] private float _timeLeft;
 
     // STEP 1 -----------------------------------------------------------------
 
@@ -24,12 +24,12 @@ public class Timer : MonoBehaviour
     //      should start with.
     // It does not have any output.
     // 
-    public void BeginTimer(float starting_time)
+    public void BeginTimer(float startingTime)
     {
         // Inside the method here, set the value of our timer member variable to
         // the countdown start time parameter.
 
-        time_left = starting_time;
+        _timeLeft = startingTime;
     }
 
     // STEP 2 -----------------------------------------------------------------
@@ -51,7 +51,7 @@ public class Timer : MonoBehaviour
     // In this method body, use Time.deltaTime to decrease the the value of 
     //      our timer member variable every frame.
 
-        time_left -= Time.deltaTime;
+        _timeLeft -= Time.deltaTime;
     }
 
     // This method can be used to check the value of your time member variable.
@@ -60,7 +60,7 @@ public class Timer : MonoBehaviour
         // STEP 4 -------------------------------------------------------------
         // REPLACE this line with a new line of code that reutrns the value of
         //      your time member variable.
-        return time_left;
+        return _timeLeft;
         // STEP 4 -------------------------------------------------------------
     }
 
@@ -71,7 +71,7 @@ public class Timer : MonoBehaviour
     // It should be public, and has no input.
     public Boolean IsFinished()
     {
-        if (time_left <= 0)
+        if (_timeLeft <= 0)
         {
             return true;
         }
